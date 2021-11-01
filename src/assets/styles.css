@@ -1,0 +1,587 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap');
+
+:root {
+	--hue: 185;
+
+	--primary-color: hsl(var(--hue), 48%, 62%);
+	--primary-color-lighter: hsl(var(--hue), 48%, 70%);
+	--primary-color-lightest: hsl(var(--hue), 48%, 79%);
+	--primary-color-darker: hsl(var(--hue), 36%, 52%);
+	--dark-color: hsl(var(--hue), 12%, 82%);
+	--light-color: hsl(var(--hue), 21%, 91%);
+	--lighter-color: hsl(var(--hue), 28%, 95%);
+	--lightest-color: hsl(var(--hue), 35%, 99%);
+	--title-color: hsl(var(--hue), 15%, 28%);
+	--text-color: hsl(var(--hue), 15%, 15%);
+	--text-light-color: hsl(var(--hue), 17%, 41%);
+	
+	
+	--poppins: 'Poppins', sans-serif;
+	--arabic: 'Scheherazade New';
+}
+
+::placeholder, ::-moz-placeholder, ::-webkit-input-placeholder {
+	color: var(--text-color);
+	/* opacity: .5; */
+}
+
+::-webkit-scrollbar {
+	background-color: var(--light-color);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--primary-color);
+}
+/* ==================== element ==================== */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: var(--lightest-color);
+	box-sizing: border-box;
+	color: var(--text-color);
+	font-family: var(--poppins);
+	transition: .3s;
+}
+
+/* ==================== Dark theme ==================== */
+body.dark-theme {
+	--title-color: hsl(var(--hue), 8%, 95%);
+    --text-color: hsl(var(--hue), 8%, 78%);
+	--dark-color: hsl(var(--hue), 8%, 42%);
+	--light-color: hsl(var(--hue), 21%, 25%);
+	--lighter-color: hsl(var(--hue), 18%, 18%);
+	--lightest-color: hsl(var(--hue), 16%, 14%);
+}
+
+span, p, h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* ==================== Core? ==================== */
+#app {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.flex {
+	display: flex;
+}
+
+.grid {
+	display: grid;
+}
+
+.container {
+	padding: .5rem 1rem;
+	max-width: 95vw;
+}
+
+.content {
+	padding: 1rem 0;
+	flex: 1;
+	display: flex;
+	justify-content: center;
+}
+
+.arabic {
+	color: var(--title-color);
+	direction: rtl;
+	font-family: var(--arabic);
+}
+
+/* ==================== Vue transition ==================== */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity scale .3s ease-in-out;
+}
+
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+  scale: 0.8;
+}
+
+/* ==================== Navbar ==================== */
+.navbar {
+	position: relative;
+	width: 100%;
+	min-height: 80px;
+	background-color: var(--lightest-color);
+	box-shadow: 0 4px 8px rgb(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: .3s;
+}
+
+.icon-theme {
+	position: absolute;
+	right: 2.5rem;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--primary-color);
+	font-size: 1.5rem;
+	cursor: pointer;
+	transition: .3s;
+}
+
+.icon-theme:hover {
+	color: var(--primary-color-lightest);
+}
+
+.navbar-text {
+	color: var(--title-color);
+	transition: .3s;
+}
+
+.navbar-text span {
+	color: var(--primary-color);
+	transition: .3s;
+}
+
+.navbar-text:hover {
+	color: var(--primary-color);
+	/* color: var(--text-color); */
+}
+
+.navbar-text:hover span{
+	color: var(--title-color);
+	/* color: var(--primary-color-darker); */
+}
+/* ==================== Home ==================== */
+.home {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.home__text {
+	text-align: center;
+	color: var(--primary-color);
+}
+
+.home__search {
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	/* display: flex; */
+	background-color: var(--lighter-color);
+	border-radius: 999px;
+	padding: .75rem;
+	width: 300px;
+}
+
+.home__search span,
+.home__search svg {
+	position: absolute;
+	right: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 16px;
+	color: var(--primary-color);
+}
+
+.home__search-input {
+	border: none;
+	outline: none;
+	max-width: 300px;
+	background-color: transparent;
+	margin-left: .5rem;
+	color: var(--text-color);
+}
+
+.home__search-button {
+	width: max-content;
+	margin: .75rem 0 0 1rem;
+	border: none;
+	outline: none;
+	padding: 1rem 1.5rem;
+	background-color: var(--primary-color-lighter);
+	border-radius: 1.5rem;
+	color: white;
+	cursor: pointer;
+	transition: .3s;
+}
+
+.home__search-button:hover {
+	background-color: var(--primary-color);
+}
+
+.buttons-group {
+	background-color: var(--light-color);
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem;
+}
+
+.settings {
+	position: fixed;
+	left: 1.75rem;
+	bottom: 100px;
+	padding: 1rem;
+	background-color: var(--light-color);
+	border-radius: 1rem;
+	box-shadow: 0 4px 8px rgb(0, 0, 0, 0.15);
+	transition: .4s ease-in-out;
+}
+
+.settings-title {
+	color: var(--title-color);
+	font-size: 1rem;
+	margin-bottom: .5rem;
+}
+
+.settings-subtitle {
+	font-size: .75rem;
+}
+
+.settings-input {
+	width: 140px;
+	padding: .5rem;
+	border: none;
+	outline: none;
+	background-color: var(--lightest-color);
+	border-radius: .5rem;
+	margin-top: .5rem;
+	color: var(--text-color);
+}
+
+.settings-button,
+.scrollTop-button {
+	position: relative;
+	margin: 0 1rem;
+	height: 46px;
+	width: 46px;
+	border-radius: 1rem;
+	background-color: var(--lightest-color);
+	cursor: pointer;
+	transition: .3s;
+}
+
+.settings-button i {
+	transition: .3s;
+}
+
+.settings-button i,
+.scrollTop-button i {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.scrollTop-button {
+	background-color: var(--primary-color);
+	color: white;
+	transform: translateY(100);
+}
+
+.settings-button:hover i { 
+	color: var(--primary-color-darker);
+}
+
+.scrollTop-button:hover {
+	background-color: var(--primary-color-darker);
+}
+
+/* -------------------- Content -------------------- */
+.home__content {
+	margin-top: 5rem;
+	gap: .75rem;
+	transition: .3s;
+}
+
+/* ==================== Surah-list ==================== */
+
+.surah {
+	position: relative;
+	margin-bottom: .75rem;
+	height: 140px;
+	border-radius: 1rem;
+	background-color: var(--lighter-color);
+	transition: .3s;
+	grid-template-columns: max-content 1fr;
+	box-shadow: 0 0 0 rgb(0, 0, 0, 0.12);
+	overflow: hidden;
+}
+
+.surah:hover {
+	box-shadow: 0 8px 16px rgb(0, 0, 0, 0.08);
+}
+
+.surah__list-number {
+	display: flex;
+	padding: 0 1rem;
+	justify-content: center;
+}
+
+.surah__list-number span {
+	margin-top: 1rem;
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	background-color: var(--primary-color);
+	color: white;
+}
+
+.surah__list-details {
+	height: 100%;
+}
+
+.surah__list-details-top {
+	padding: 1rem;
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
+}
+
+.surah__list-details-name {
+	font-size: 1rem;
+	line-height: 1.5rem;
+	font-weight: bold;
+	color: var(--title-color);
+	margin-bottom: .5rem;
+	text-align: right;
+}
+
+.surah__list-details-translate {
+	font-size: .75rem;
+	opacity: .8;
+	text-align: right;
+}
+
+.surah__list-details-bottom {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding: 0 .5rem;
+	display: flex;
+	height: 38px;
+	justify-content: flex-end;
+}
+
+.surah__list-details-bottom span {
+	font-size: small;
+	margin-left: .5rem;
+	height: max-content;
+	width: max-content;
+	padding: .15rem .75rem;
+	border-radius: 999px;
+	color: var(--text-light-color);
+	background-color: var(--primary-color-lightest);
+}
+
+.surah__list-details-verses {
+	font-weight: bold;
+}
+
+/* ==================== Surah-single ==================== */
+.surah__div {
+	/* background-color: var(--lightest-color); */
+	padding: .5rem 1rem;
+	border-radius: 1rem;
+}
+
+.surah__opening {
+	justify-content: center;
+	grid-template-columns:repeat(4, max-content);
+	gap: .5rem;
+	margin: 0 auto .75rem;
+}
+
+.surah__opening span { 
+	font-size: 1.5rem;
+}
+
+.surah__opening span:last-child {
+	display: none;
+}
+
+.surah__div .separator:last-child {
+	border-bottom: none;
+}
+
+.separator {
+	padding: 0 0 1rem;
+	border-bottom: 1px var(--dark-color) solid;
+}
+
+.surah__div-arabic {
+	padding: .5rem 0 1.5rem;
+	position: relative;
+}
+
+.surah__div-arabic span {
+	display: inline-block;
+	font-size: 1.75rem;
+	margin-right: 5px;
+}
+
+.surah__div-arabic span:last-child {
+	font-size: 1.5rem;
+	margin-right: .75rem;
+}
+
+.surah__div-arabic span:last-child::before {
+	display: inline-block;
+	content: '\FD3F';
+}
+
+.surah__div-arabic span:last-child::after {
+	display: inline-block;
+	content: '\FD3E';
+}
+
+.surah__div-translate {
+	align-items: center;
+	width: 100%;
+}
+
+.surah__div-verseKey{
+	margin: 0;
+	width: max-content;
+	padding: .25rem .75rem;
+	border-radius: .5rem;
+	font-size: small;
+	background-color: var(--light-color);
+	margin-right: .5rem;
+	word-spacing: 5px;
+}
+
+.surah__div-translation p {
+	font-size: .8rem;
+	margin-right: 3px;
+	text-align: justify;
+}
+
+.surah__div-translation span:last-child{
+	display: none;
+}
+
+/* ==================== Footer ==================== */
+
+footer {
+	display: inline;
+	background: var(--primary-color-darker);
+	color: white;
+	padding: 2rem 2rem calc(78px + 2rem);
+	text-align: center;
+	transition: .3s;
+}
+
+.footer__logo {
+	font-weight: bold;
+}
+
+.footer__logo span:last-child {
+	color: var(--primary-color-lighter);
+}
+
+/* ==================== Media Queries ==================== */
+@media screen and (min-width : 409px) {
+	.home__search-button {
+		margin: 0 0 0 1rem;
+	}
+}
+
+@media screen and (min-width: 640px) {
+	footer {
+		padding: 2rem;
+
+	}
+
+	.container {
+		width: 80vw;
+	}
+
+	.icon-theme {
+		right: 1rem;
+	}
+
+	.home__content {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.25rem;
+	}
+
+	.surah__list-details-name {
+		font-size: 1rem;
+	}
+
+	.surah__list-details-translate {
+		font-size: .65rem;
+	}
+
+	.buttons-group {
+		background-color: transparent;
+	}
+	
+	.settings {
+		left: auto;
+		right: 80px;
+		bottom: 160px;
+	}
+	
+	.settings-button,
+	.scrollTop-button {
+		position: fixed;
+		bottom: 130px;
+		right: 0;
+		background-color: var(--lighter-color);
+		box-shadow: 0 4px 8px rgb(0, 0, 0, 0.15);
+	}
+	
+	.scrollTop-button {
+		bottom: 60px;
+		background-color: var(--primary-color-lighter);
+	}
+}
+
+@media screen and (min-width: 960px) {
+	.container {
+		width: 75vw;
+	}
+	
+	.icon-theme {
+		right: 4rem;
+	}
+	
+	.home__content {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+	}
+	
+	.settings {	
+		left: auto;
+		right: 120px;
+		bottom: 160px;
+	}
+
+	.settings-button,
+	.scrollTop-button {
+		right: 2.5rem;
+	}
+}
