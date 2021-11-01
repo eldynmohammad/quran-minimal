@@ -1,4 +1,5 @@
-# vue_movie_app
+# Quran-minimal  
+Made with Vue.js. Click [here](https://quran-minimal.netlify.app) to visit the page
 
 ## Project setup
 ```
